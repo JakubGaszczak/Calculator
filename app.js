@@ -14,5 +14,22 @@ const divide = (a, b) => {
     return a / b;
 }
 
-console.log(divide(2, 4));
+const operate = (operator, a, b) => {
+
+    switch (operator) {
+        case "+":
+            add(a, b);
+            break;
+        case "-":
+            subtract(a, b);
+            break;
+        case "/":
+            divide(a, b);
+            break;
+        case "*":
+            multiply(a, b);
+            break; 
+    }
+
+}
 
