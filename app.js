@@ -1,35 +1,46 @@
-const add = (a, b) => {
-    return a + b;
-}
+const numberButtons = document.querySelectorAll("[data-number]");
+const operationButtons = document.querySelectorAll("[data-operation]");
+const equalsButtons = document.querySelector("[data-equlas]");
+const deleteButtons = document.querySelector("[data-delete]");
+const clearButtons = document.querySelector("[data-clear]");
+const currentDisplayNumber = document.querySelector("[data-current-operand]");
+const previousDisplayNumber = document.querySelector("[data-previous-operand]");
 
-const subtract = (a, b) => {
-    return a - b;
-}
+let currentNumber = "";
+let previousNumber = "";
+let operator = "";
 
-const multiply = (a, b) => {
-    return a * b;
-}
 
-const divide = (a, b) => {
-    return a / b;
-}
+//functions for numbers
+numberButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        handleNumber(e.target.textContent);
+    })
+})
 
-const operate = (operator, a, b) => {
-
-    switch (operator) {
-        case "+":
-            add(a, b);
-            break;
-        case "-":
-            subtract(a, b);
-            break;
-        case "/":
-            divide(a, b);
-            break;
-        case "*":
-            multiply(a, b);
-            break; 
+function handleNumber(number) {
+    if (currentNumber.length >= 12) {
+        return false;
+    } else {
+        currentNumber += number;
+        currentDisplayNumber.textContent = currentNumber;
     }
-
 }
+
+//functions for operators
+operationButtons.forEach((btn) => {
+    btn.addEventListener("click", e => {
+        handleOperator(e.target.textContent);
+    })
+})
+
+function handleOperator(op) {
+    operator = op;
+    previousNumber = currentNumber;
+    previousDisplayNumber.textContent = previousNumber + " " + operator;
+    currentNumber = "";
+    currentDisplayNumber.textContent = ""; 
+}
+
+
 

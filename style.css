@@ -42,14 +42,14 @@ body {
     padding: 10px 32px;
     margin-right: 26px;
     background-color: rgb(255, 0, 0, .3);
-    border: 1px solid rgb(10, 10, 10, 0.6);
+    border: 1px solid rgb(10, 10, 10, 0.7);
     cursor: pointer;
     border-radius: 5px;
     font-weight: 800;
 }
 
 .clear-btn:hover {
-    background-color: rgb(255, 0, 0, .6);
+    background-color: rgb(255, 0, 0, .7);
 }
 
 .delete-btn {
@@ -71,13 +71,7 @@ body {
     grid-template-rows: repeat(4, 1fr);
 }
 
-.clear-buttons {
-    text-align: center;
-    margin-left: 2px;
-    margin-bottom: 10px;
-}
-
-.result {
+.display {
     margin-bottom: 20px;
     min-height: 100px;
     border-radius: 5px;
@@ -89,7 +83,12 @@ body {
     justify-content: end;
 }
 
-p {
-    margin: 15px;
+.previous-operand {
+    display: inline-flex;
+    font-size: 25px;
+    margin-bottom: 50px;
 }
 
+.current-operand {
+    position: absolute;
+}
